@@ -1,0 +1,24 @@
+﻿@model MarketingWebApp.ViewModels.OrdersVM
+
+@{
+  ViewBag.Title = "Orders";
+}
+
+<h2>Orders for @Model.Person.Firstname @Model.Person.Surname</h2>
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Reference</th>
+        <th>Value</th>
+    </tr>
+    @foreach (var order in Model.Orders)
+    {
+    <tr>
+        <td>@order.OrderName</td>
+        <td>@order.OrderReference</td>
+        <td>@order.OrderValue</td>
+    </tr>
+    }
+</table>

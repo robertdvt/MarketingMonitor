@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MarketingMonitor.Database.Models.Person>
+
+@{
+  ViewBag.Title = "Index";
+}
+
+<h2>Report</h2>
+
+
+
+<table>
+    <tr>
+        <th>First name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Reference</th>
+        <th>Order Count</th>
+    </tr>
+    @foreach (var person in Model)
+    {
+    <tr>
+        <td>@Html.ActionLink(person.Firstname, "Orders", new { id = person.Id })</td>
+        <td>@person.Surname</td>
+        <td>@person.Email</td>
+        <td>@person.ReferenceNo</td>
+        <td>@person.Orders.Count()</td>
+    </tr>
+    }
+</table>

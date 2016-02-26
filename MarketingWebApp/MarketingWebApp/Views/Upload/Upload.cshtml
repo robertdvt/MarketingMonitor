@@ -1,0 +1,39 @@
+﻿
+@{
+  ViewBag.Title = "Upload";
+}
+
+<h2>Upload</h2>
+
+@using (Html.BeginForm("Upload", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<table>
+    <tr>
+        <td>Files: </td>
+        <td><input type="file" name="Files" id="Files" value="" multiple="multiple" /></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" name="Submit" value="Upload" title="Upload" /></td>
+    </tr>
+</table>
+
+
+}
+
+@if (ViewBag.Results != null && (ViewBag.Results as IEnumerable<MarketingWebApp.ViewModels.UploadFileResultVM>).Count() > 0)
+{
+<br />
+<h3>Upload results</h3>
+<table>
+    @foreach (var item in ViewBag.Results)
+    {
+    <tr>
+        <td>@item.Filename</td>
+        <td>@item.IsUploaded</td>
+    </tr>
+    }
+</table>
+
+}
+
